@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import App from './App';
-import ImageLoader from './ImageLoader';
+import App from './components/App';
+// import ImageLoader from './components/ImageLoader';
 import './index.css';
 
 ReactDOM.render(
-  <ImageLoader />,
+  <App />,
   document.getElementById('root'),
 );
