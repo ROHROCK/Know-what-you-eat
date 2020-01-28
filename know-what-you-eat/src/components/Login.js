@@ -27,7 +27,7 @@ class Login extends Component{
             password:this.state.password
         },this.headers).then((result) => {
             localStorage.setItem('jwt',result.data);
-            console.log(result.data);
+            this.props.history.push("/Protected");
         });
     }
     render(){

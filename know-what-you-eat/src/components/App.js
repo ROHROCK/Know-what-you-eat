@@ -3,6 +3,10 @@ import {BrowserRouter, Switch, Route, Router} from 'react-router-dom';
 import Home from './Home';
 // import AuthenticatedComponent from './AuthenicatedComponent';
 import Login from './Login'
+// import Protected from './Protected';
+import AuthenticatedComponent from './AuthenicatedComponent';
+import ImageLoader from './ImageLoader';
+
 class App extends Component {
   render() {
     return (
@@ -10,6 +14,9 @@ class App extends Component {
       <Switch>
         <Route path="/Login" component={Login} />
         <Route path='/' exact component={Home} />
+        <AuthenticatedComponent>
+          <Route path="/Protected" component={ImageLoader} />
+        </AuthenticatedComponent>
       </Switch>
       </BrowserRouter>
     );
