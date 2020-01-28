@@ -9,7 +9,7 @@ class AuthenticatedComponent extends Component{
             user:undefined
         }
     }
-    
+       
     componentDidMount(){
         const jwt = localStorage.getItem('jwt');
         if(!jwt){

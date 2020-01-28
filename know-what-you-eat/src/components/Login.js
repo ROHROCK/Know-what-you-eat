@@ -1,5 +1,6 @@
 import React,{ Component } from 'react';
 import axios from 'axios';
+import LoginClass from './Login.css'
 
 class Login extends Component{
     constructor(props){
@@ -32,11 +33,12 @@ class Login extends Component{
     }
     render(){
         return(<div>
-            <form onSubmit={e => this.submit(e)}>
-                <label>Email</label><input type="text" name="username" onChange={e => this.change(e)} value={this.state.username}/>
-                <label>Password</label><input type="password" name="password" onChange={e => this.change(e)} 
-                value={this.state.password}/>
-                <button type="submit" >Submit</button>
+            <form className="text-center Login.loginClass form-signin" onSubmit={e => this.submit(e)}>
+            <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+                <input className="form-control" placeholder="Email address"type="email" name="username" onChange={e => this.change(e)} value={this.state.username} required autoFocus/>
+                <input className="form-control" type="password" name="password" onChange={e => this.change(e)} 
+                value={this.state.password} required placeholder="password"/>
+                <button type="submit" className="btn btn-lg btn-primary btn-block" >Submit</button>
             </form>
         </div>
         );
