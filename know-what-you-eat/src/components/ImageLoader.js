@@ -1,77 +1,94 @@
 import React, { Component } from 'react';
 import { Button } from 'react-native';
 import './css/ImageLoader.css';
+import Axios from 'axios';
+// import {withRouter} from 'react-router';
 
 class ImageLoader extends Component {
   constructor(props){
     super(props)
     this.state = {
-      image : null
+      selectedFrontImageFile: null,
+      imagePreviewUrl: null
     }
-    this.onImageChange = this.onImageChange.bind(this);
-    this.submit = this.submit.bind(this);
-  }
-
-  onImageChange = event =>{
-    if(event.target.files && event.target.files[0]){
-      let reader = new FileReader();
-      reader.onload = (e) =>{
-        this.setState({image:event.target.result})
-      };
-      reader.readAsDataURL(event.target.files[0])
-    }
-    console.log(event.target.files[0]);
+    this.submitFunction = this.submitFunction.bind(this);
   }
 
   fileChangedHandler = event => {
     this.setState({
-      selectedFile: event.target.files[0]
+      selectedFrontImageFile: event.target.files[0]
     })
- 
     let reader = new FileReader();
-     
     reader.onloadend = () => {
       this.setState({
         imagePreviewUrl: reader.result
       });
     }
- 
     reader.readAsDataURL(event.target.files[0])
- 
   }
+
     render() {
       let $imagePreview = (<div className="previewText image-container">Please select an Image for Preview</div>);
       if (this.state.imagePreviewUrl) {
         $imagePreview = (<div className="image-container" ><img src={this.state.imagePreviewUrl} alt="icon" width="200" /> </div>);
       }
-        return (
-          <div>
-            <h1> Upload Image</h1>
+      return (
+        <div>
+            <h1>Upload Image</h1>
             <input type="file" name="avatar" onChange={this.fileChangedHandler} />
-            <Button title="Upload" onPress={this.submit} /> 
-            <input type="submit" text="click me" onClick={this.submit}>Click me</input>
             { $imagePreview }
-          </div>
+            <Button title="Upload" onPress={this.submitFunction} />             
+        </div>
     );
-
     }
-    submit = () => {
+    submitFunction = () => {
       console.log("Submit function invoked !");
-      if(this.state.image)
-        console.log('Image selected')
+      if(this.state.selectedFrontImageFile != null)
+        console.log('image data: ',this.state.selectedFrontImageFile);
       else
-        console.log('Image not selected')
-      // var fd = new FormData();
-      // fd.append('file', this.state.selectedFile);
-      // var request = new XMLHttpRequest();
-      // request.onreadystatechange = function() {
-      //   if (this.readyState === 4 &amp;&amp; this.status === 200) {
-      //     alert('Uploaded!');
-      //   }
-      // };
-      // request.open("POST", "https://us-central1-tutorial-e6ea7.cloudfunctions.net/fileUpload", true);
-      // request.send(fd);
-  }
+        console.log('Image not selected');
+      //uploading using json 
+      console.log("Data to be sent",this.state.selectedFrontImageFile)
+      // const jwt = localStorage.getItem('jwt');
+      //   if(!jwt)
+      //       this.props.history.push('/login');
+      //   // Asynch call
+      //   Axios.post('/uploadImage',{
+      //       headers:{
+      //           'Authorization':`Bearer ${jwt}`
+      //       },
+      //       option:{
+      //           'Access-Control-Allow-Origin':'*'
+      //       },
+      //       body:{
+      //         'imageType':'Front-Image',
+      //         'image': state.selectedFrontImageFile
+      //       }
+      //       }).then(
+      //       res => {
+      //           console.log('Image Type',res);
+      //   }).catch(err => {
+      //           console.log("ERR",err);
+      //           localStorage.removeItem('jwt');
+      //           this.props.history.push('/login');
+      //       });
+      var fd = new FormData();
+      fd.append('topImage', this.state.selectedFrontImageFile);
+      const config = {
+        headers: {
+            'content-type': 'multipart/form-data'
+        },
+        option:{
+          'Access-Control-Allow-Origin':'*'
+        }
+      };
+      Axios.post("/uploadImage",fd,config)
+          .then((response) => {
+              console.log("The file is successfully uploaded");
+          }).catch((error) => {
+            console.log("Error uploading file");
+      });
+    }
 }
 
 export default ImageLoader;

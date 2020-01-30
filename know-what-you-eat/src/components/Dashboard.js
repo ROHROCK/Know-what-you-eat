@@ -18,20 +18,20 @@ const styles= StyleSheet.create({
     }
 })
 
-export default class Dashboard extends Component{
+class Dashboard extends Component{
     render(){
         return(
-            <ImageLoader />
-            // <View style={{flex:1,flexDirection:"column"}}>
-                // <View style={styles.parentView}>
-                //     <View style={styles.imagePicker1} >
-                //         <ImageLoader />
-                //     </View>
-                //     <View style={styles.imagePicker2}>
-                //         <ImageLoader />
-                //     </View>
-                // </View>
-            // </View>
+        <View style={{flex:1,flexDirection:"column"}}>
+                <View style={styles.parentView}>
+                     <View style={styles.imagePicker1} >
+                         <ImageLoader />
+                     </View>
+                     <View style={styles.imagePicker2}>
+                        <ImageLoader />
+                     </View>
+                </View>
+        </View>
         );
     }
 }
+export default Dashboard;
