@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'react-native';
+import { Button, View } from 'react-native';
 import './css/ImageLoader.css';
 import Axios from 'axios';
 // import {withRouter} from 'react-router';
@@ -11,7 +11,7 @@ class ImageLoader extends Component {
       selectedFrontImageFile: null,
       selectedSideImageFile:null,
       frontImagePreview: null,
-      sideImagePrview: null
+      sideImagePreview: null
     }
     this.submitFunction = this.submitFunction.bind(this);
   }
@@ -28,18 +28,40 @@ class ImageLoader extends Component {
     }
     reader.readAsDataURL(event.target.files[0])
   }
+  fileSideImageHandler = event =>{
+    this.setState({
+      selectedSideImageFile: event.target.files[0]
+    })
+    let reader = new FileReader();
+    reader.onloadend = () => {
+      this.setState({
+        sideImagePreview: reader.result
+      });
+    }
+    reader.readAsDataURL(event.target.files[0])
+  }
 
     render() {
-      let $imagePreview = (<div className="previewText image-container">Please select an Image for Preview</div>);
+      let $frontPreview = (<div className="previewText image-container">Please select an Image for Preview</div>);
+      let $sidePreview = (<div className="previewText image-container">Please select an Image for Preview</div>);
+      
       if (this.state.frontImagePreview) {
-        $imagePreview = (<div className="image-container" ><img src={this.state.frontImagePreview} alt="icon" width="200" /> </div>);
+        $frontPreview = (<div className="image-container" ><img src={this.state.frontImagePreview} alt="icon" width="200" /> </div>);
       }
+      if(this.state.sideImagePreview){
+        $sidePreview = (<div className="image-container" ><img src={this.state.sideImagePreview} alt="icon" width="200" /> </div>)
+      }
+
       return (
         <div>
             <h1>Upload Image</h1>
+            {/* <View style={{}}> */}
             <input type="file" name="avatar" onChange={this.fileChangedHandler} />
-            { $imagePreview }
-            <Button title="Upload" onPress={this.submitFunction} />             
+            { $frontPreview }
+            <input type="file" name="avatar" onChange={this.fileSideImageHandler} />
+            { $sidePreview }
+            <Button title="Upload" onPress={this.submitFunction} />
+            {/* </View>              */}
         </div>
     );
     }
@@ -51,31 +73,10 @@ class ImageLoader extends Component {
         console.log('Image not selected');
       //uploading using json 
       console.log("Data to be sent",this.state.selectedFrontImageFile)
-      // const jwt = localStorage.getItem('jwt');
-      //   if(!jwt)
-      //       this.props.history.push('/login');
-      //   // Asynch call
-      //   Axios.post('/uploadImage',{
-      //       headers:{
-      //           'Authorization':`Bearer ${jwt}`
-      //       },
-      //       option:{
-      //           'Access-Control-Allow-Origin':'*'
-      //       },
-      //       body:{
-      //         'imageType':'Front-Image',
-      //         'image': state.selectedFrontImageFile
-      //       }
-      //       }).then(
-      //       res => {
-      //           console.log('Image Type',res);
-      //   }).catch(err => {
-      //           console.log("ERR",err);
-      //           localStorage.removeItem('jwt');
-      //           this.props.history.push('/login');
-      //       });
       var fd = new FormData();
       fd.append('topImage', this.state.selectedFrontImageFile);
+      fd.append('sideImage',this.state.selectedSideImageFile);
+      
       const config = {
         headers: {
             'content-type': 'multipart/form-data'

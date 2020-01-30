@@ -21,16 +21,17 @@ const styles= StyleSheet.create({
 class Dashboard extends Component{
     render(){
         return(
-        <View style={{flex:1,flexDirection:"column"}}>
-                <View style={styles.parentView}>
-                     <View style={styles.imagePicker1} >
-                         <ImageLoader />
-                     </View>
-                     <View style={styles.imagePicker2}>
-                        <ImageLoader />
-                     </View>
-                </View>
-        </View>
+            <ImageLoader />
+        // <View style={{flex:1,flexDirection:"column"}}>
+        //         <View style={styles.parentView}>
+        //              <View style={styles.imagePicker1} >
+        //                  <ImageLoader />
+        //              </View>
+        //              <View style={styles.imagePicker2}>
+        //                 <ImageLoader />
+        //              </View>
+        //         </View>
+        // </View>
         );
     }
 }
