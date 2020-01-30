@@ -1,6 +1,7 @@
 import React,{ Component } from 'react';
 import axios from 'axios';
 import './css/Login.css'
+// import withRouter from 'react-router-dom';
 
 class Login extends Component{
     constructor(props){
@@ -28,7 +29,7 @@ class Login extends Component{
             password:this.state.password
         },this.headers).then((result) => {
             localStorage.setItem('jwt',result.data);
-            this.props.history.push("/Protected");
+            this.props.history.push("/Dashboard");
         });
     }
     render(){
