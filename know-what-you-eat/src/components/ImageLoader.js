@@ -88,6 +88,7 @@ class ImageLoader extends Component {
       Axios.post("/uploadImage",fd,config)
           .then((response) => {
               console.log("The file is successfully uploaded");
+              console.log('Response',response);
           }).catch((error) => {
             console.log("Error uploading file");
       });
