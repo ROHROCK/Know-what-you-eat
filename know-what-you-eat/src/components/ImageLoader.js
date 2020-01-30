@@ -9,7 +9,9 @@ class ImageLoader extends Component {
     super(props)
     this.state = {
       selectedFrontImageFile: null,
-      imagePreviewUrl: null
+      selectedSideImageFile:null,
+      frontImagePreview: null,
+      sideImagePrview: null
     }
     this.submitFunction = this.submitFunction.bind(this);
   }
@@ -21,7 +23,7 @@ class ImageLoader extends Component {
     let reader = new FileReader();
     reader.onloadend = () => {
       this.setState({
-        imagePreviewUrl: reader.result
+        frontImagePreview: reader.result
       });
     }
     reader.readAsDataURL(event.target.files[0])
@@ -29,8 +31,8 @@ class ImageLoader extends Component {
 
     render() {
       let $imagePreview = (<div className="previewText image-container">Please select an Image for Preview</div>);
-      if (this.state.imagePreviewUrl) {
-        $imagePreview = (<div className="image-container" ><img src={this.state.imagePreviewUrl} alt="icon" width="200" /> </div>);
+      if (this.state.frontImagePreview) {
+        $imagePreview = (<div className="image-container" ><img src={this.state.frontImagePreview} alt="icon" width="200" /> </div>);
       }
       return (
         <div>
