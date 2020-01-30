@@ -1,0 +1,53 @@
+/* Elements */
+li{
+    list-style-type: none;
+    padding: 10px 0;
+    margin: 0;
+    display: inline;
+}
+
+/* Class */
+.navbarbutton {
+    font-size: 30px;
+    margin-right: 30px;
+    color: red;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    float: right;
+}
+
+.links {
+  height: 0;
+  overflow: hidden;
+  list-style-type: none;
+  font-weight: bold;
+}
+
+.show-nav {
+    height: 100px;
+}
+
+.navBar {
+    width: 100%;
+    background-color: #111;
+    color: white;
+    padding: 10px;
+}
+
+/* Media screen size */
+@media screen and (min-width: 768px) {
+    button {
+        display: none;
+    }
+
+    .links {
+        height: auto;
+        display: flex;
+    }
+
+    li {
+        padding: 0 15px;
+    }
+}
