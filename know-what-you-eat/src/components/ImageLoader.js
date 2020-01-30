@@ -1,7 +1,38 @@
 import React, { Component } from 'react';
-import { Button,View,Text } from 'react-native';
-import styles from './css/ImageLoaderStyle.js';
+import { Button,View,Text,StyleSheet } from 'react-native';
+// import styles from './css/ImageLoaderStyle.js';
 import Axios from 'axios';
+
+const styles = StyleSheet.create({
+  baseText:{
+    fontSize:20,
+    fontFamily:'Arial'
+  },
+  parentView:{
+    flex:3,
+    flexDirection:'column',
+    backgroundColor:'red'
+  },
+  imageView:{
+    flex:1,
+    flexDirection:'row',
+    padding:2,
+    backgroundColor:'yellow'
+  },  
+  imagePicker1:{
+      flex:1,
+      justifyContent: 'space-around',
+      alignItems:'center'
+  },
+  imagePicker2:{
+      flex:1,
+      justifyContent: 'space-around',
+      alignItems:'center'
+  },
+  submitButton:{
+    flex:1
+  }
+});
 
 class ImageLoader extends Component {
   constructor(props){
