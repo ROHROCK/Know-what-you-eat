@@ -1,22 +1,22 @@
 import React,{Component} from "react";
 import ImageLoader from './ImageLoader';
-import {StyleSheet, View} from 'react-native';
+// import {StyleSheet, View} from 'react-native';
 
-const styles= StyleSheet.create({
-    parentView:{
-        flex:1,
-        flexDirection:'row'
-    },  
-    imagePicker1:{
-        flex:1,
-        justifyContent: 'space-around',
-        // alignItems:'center'
-    },
-    imagePicker2:{
-        flex:1,
-        justifyContent: 'space-around',
-    }
-})
+// const styles= StyleSheet.create({
+//     parentView:{
+//         flex:1,
+//         flexDirection:'row'
+//     },  
+//     imagePicker1:{
+//         flex:1,
+//         justifyContent: 'space-around',
+//         // alignItems:'center'
+//     },
+//     imagePicker2:{
+//         flex:1,
+//         justifyContent: 'space-around',
+//     }
+// })
 
 class Dashboard extends Component{
     render(){
