@@ -73,28 +73,24 @@ class ImageLoader extends Component {
                 <Button title="Upload" onPress={this.submitFunction} />
               </View>  
             </View>
-            
         </div>
     );
     }
     submitFunction = () => {
-      console.log("Submit function invoked !");
-      if(this.state.selectedFrontImageFile != null)
-        console.log('image data: ',this.state.selectedFrontImageFile);
-      else{ 
+      if(this.state.selectedFrontImageFile == null){
         alert('Please select images');
         return;
       }
         
       //uploading using json 
-      console.log("Data to be sent",this.state.selectedFrontImageFile)
       var fd = new FormData();
       fd.append('topImage', this.state.selectedFrontImageFile);
       fd.append('sideImage',this.state.selectedSideImageFile);
-      
+      const token = localStorage.getItem('jwt');
       const config = {
         headers: {
-            'content-type': 'multipart/form-data'
+            'content-type': 'multipart/form-data',
+            'Authorization': `bearer ${token}`
         },
         option:{
           'Access-Control-Allow-Origin':'*'
@@ -105,10 +101,6 @@ class ImageLoader extends Component {
               console.log('Response',response);
               if(response.status === 200){
                 console.log("The file is successfully uploaded");
-                // This code will parse the result and take the list
-                // data = JSON.parse(response.data);
-                // this.state.frontText = data['frontList']
-                // this.state.sideText = data['sideList']
               }
           }).catch((error) => {
             console.log("Error uploading file");

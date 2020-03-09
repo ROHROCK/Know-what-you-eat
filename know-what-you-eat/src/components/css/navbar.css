@@ -23,6 +23,10 @@ li{
   overflow: hidden;
   list-style-type: none;
   font-weight: bold;
+  width:50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .show-nav {
