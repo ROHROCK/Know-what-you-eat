@@ -52,13 +52,13 @@ class NavbarComponent extends Component {
     renderButton = (userLogginStatus) =>{
       switch(userLogginStatus){
         case "Register":
-          return <Button onClick={this.redirectRegister}>Register</Button>
+          return <Button className="pull-right" id="actionButton" onClick={this.redirectRegister}>Register</Button>
           break;
         case "Login":
-          return <Button onClick={this.redirectLogin}>Login</Button>
+          return <Button className="pull-right" id="actionButton" onClick={this.redirectLogin}>Login</Button>
           break;
         case "Logout":
-          return <Button onClick={this.logoutFunction}>Logout</Button>
+          return <Button className="pull-right" id="actionButton" onClick={this.logoutFunction}>Logout</Button>
           break;
       }
     }

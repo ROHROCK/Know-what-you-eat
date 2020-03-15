@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
      fontFamily:'Arial'
    },
    parentView:{
-     flex:3,
+     flex:1,
      flexDirection:'column',
      backgroundColor:'red'
    },
@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
      flex:1,
      flexDirection:'row',
      padding:2,
-     backgroundColor:'yellow'
+     backgroundColor:'blue'
    },  
    imagePicker1:{
        flex:1,

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Button,View,Text } from 'react-native';
-import { styles } from './css/ImageLoaderStyle.js';
+// import { Button,View,Text } from 'react-native';
+// import { styles } from './css/ImageLoaderStyle.js';
 import Axios from 'axios';
-
+import './css/ImageLoader.css';
 class ImageLoader extends Component {
   constructor(props){
     super(props)
@@ -54,26 +54,30 @@ class ImageLoader extends Component {
       }
 
       return (
-        <div>
-            <View style={styles.parentView}>
-            <h1 style={{textAlign:"center"}}>Upload Image</h1>
-              <View style={styles.imageView}>
-                <View style={styles.imagePicker1}>
-              <input type="file" name="avatar" onChange={this.fileChangedHandler} />
-              { $frontPreview }
-              <Text style={styles.baseText}>{this.state.frontText} </Text>
-                </View>
-                <View style={styles.imagePicker2}>
-                  <input type="file" name="avatar" onChange={this.fileSideImageHandler} />
-                  { $sidePreview }
-                  <Text style={styles.baseText}>{this.state.sideText}</Text>
-                </View>
-              </View >
-              <View style={styles.submitButton}>
-                <Button title="Upload" onPress={this.submitFunction} />
-              </View>  
-            </View>
+        <div id="background">
+          <h1>Please pick a image to find calorie of food</h1>
         </div>
+        // <div>
+        //   <div style={{flex:1,backgroundColor:'yellow'}}>
+        //       <div style={styles.parentView}>
+        //         <div style={styles.imageView}>
+        //           <div style={styles.imagePicker1}>
+        //         <input type="file" name="avatar" onChange={this.fileChangedHandler} />
+        //         { $frontPreview }
+        //         <Text style={styles.baseText}>{this.state.frontText} </Text>
+        //           </div>
+        //           <div style={styles.imagePicker2}>
+        //             <input type="file" name="avatar" onChange={this.fileSideImageHandler} />
+        //             { $sidePreview }
+        //             <Text style={styles.baseText}>{this.state.sideText}</Text>
+        //           </div>
+        //         </div >
+        //         <div style={styles.submitButton}>
+        //           <Button title="Upload" onPress={this.submitFunction} />
+        //         </div>  
+        //       </div>
+        //     </div>
+        // </div>
     );
     }
     submitFunction = () => {

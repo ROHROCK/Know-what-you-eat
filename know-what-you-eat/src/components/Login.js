@@ -38,7 +38,7 @@ class Login extends Component{
             }
         });
     }
-    render(){
+    render(){                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
         return(<div>
             <NavbarComponent userLogginStatus={"Register"} />
             <form id="custom-form" className="text-center Login.loginClass form-signin" onSubmit={e => this.submit(e)}>

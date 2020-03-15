@@ -5,7 +5,16 @@ import FadeIn from "react-fade-in";
 import Lottie from "react-lottie";
 import ReactLoading from "react-loading";
 import "bootstrap/dist/css/bootstrap.css";
+import * as legoData from "./lego-loader.json";
 
+const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: legoData.default,
+    rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice"
+    }
+}
 class AuthenticatedComponent extends Component{
     constructor(props){
         super(props);
@@ -19,36 +28,43 @@ class AuthenticatedComponent extends Component{
             this.props.history.push('/login');
         }
         // Asynch call
-        setTimeout(10000);
-        // Axios.get('/home',{
-        //     headers:{
-        //         'Authorization':`Bearer ${jwt}`
-        //     },
-        //     option:{
-        //         'Access-Control-Allow-Origin':'*'
-        //     }
-        //     }).then(
-        //     res => {
-        //         this.setState({
-        //             user:res.data
-        //         });
-        //         console.log('User name',this.state.user);
-        // }).catch(err => {
-        //         console.log("ERR",err);
-        //         localStorage.removeItem('jwt');
-        //         this.props.history.push('/login');
-        //     });
+        // setTimeout(()=>{
+            Axios.get('/home',{
+                headers:{
+                    'Authorization':`Bearer ${jwt}`
+                },
+                option:{
+                    'Access-Control-Allow-Origin':'*'
+                }
+                }).then(
+                res => {
+                    this.setState({
+                        user:res.data
+                    });
+                    console.log('User name',this.state.user);
+            }).catch(err => {
+                    console.log("ERR",err);
+                    localStorage.removeItem('jwt');
+                    this.props.history.push('/login');
+                });
+        //} ,5000);
+        
     }
 
     render(){
         return(
-        <div>
-        {!this.state.user?<ReactLoading type={"bars"} color={"white"} />: 
+            <div>
+            {!this.state.user?
+                (<FadeIn>
+                <div className="d-flex justify-content-center align-items-center">
+                    <h1>Loading..</h1>
+                    <Lottie options={defaultOptions} height={120} width={120} />                      
+                </div></FadeIn>)
+        : 
         <div>{this.props.children}</div>
         }
         </div>
         );
-        
     }
 }
 export default withRouter(AuthenticatedComponent);

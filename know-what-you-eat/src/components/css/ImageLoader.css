@@ -1,0 +1,7 @@
+#background{
+	display: flex;
+	min-height: 91.1vh;
+	margin: 0;
+	background-color: aqua;
+	justify-content: center;
+}

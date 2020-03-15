@@ -28,9 +28,6 @@ class App extends Component {
   }
   
   render() {
-    // const LoginPage = (props) =>{
-    //   return(<Login userHandler={props.match.params.userStatusHandler} {...props} />)
-    // }
     return (
        <BrowserRouter>
         <Switch>
