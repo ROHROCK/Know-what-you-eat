@@ -1,7 +1,79 @@
 #background{
 	display: flex;
+	flex: 0 0 100%;
 	min-height: 91.1vh;
 	margin: 0;
-	background-color: aqua;
+	background-color: white;
 	justify-content: center;
+	align-items:center;
+	flex-direction: column;
+}
+#instruction{
+	display: flex;
+	flex-grow:1;
+	align-items: center;
+	text-align: center;
+	padding: 10px;
+	/* position: absolute; */
+	font-family: Rosarivo;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 72px;
+	line-height: 101px;
+}
+#image-selector{
+	flex-grow: 3;
+	display:flex;
+	flex-direction: row;
+	align-self: stretch;
+}
+#image-picker-1,#image-picker-2{
+	flex-grow: 1;
+}
+#front-selector,#side-selector{
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+}
+#front-text,#side-text{
+	/* align-self: center; */
+	font-family: Rosarivo;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 48px;
+	line-height: 67px;
+	text-align: center;
+	color: #000000;
+}
+#upload-button-section{
+	flex-grow: 1;
+	justify-content: center;
+	align-items: center;
+}
+#upload-button{
+	border: none;
+	text-align: center;
+	background-color: #2DCF81;
+	padding:10px;
+	border-radius: 83px;
+	font-family: Rosarivo;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 40px;
+	line-height: 56px;
+	display: flex;
+	align-items: center;
+	text-align: center;
+}
+#result{
+	max-width: 100%;
+	flex-grow: 5;
+	background-color: #C4C4C4;
+	align-self: stretch;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
 }

@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import './css/ImageLoader.css';
+import calculator from './css/assests/calculator.png'
+import imageSelectorImage from './css/assests/Upload.png'
+import tick from './css/assests/tick.png'
+import cross from './css/assests/wrong.png'
+
 class ImageLoader extends Component {
   constructor(props){
     super(props)
@@ -9,8 +14,8 @@ class ImageLoader extends Component {
       selectedSideImageFile:null,
       frontImagePreview: null,
       sideImagePreview: null,
-      frontText:'This is sample',
-      sideText: 'Me to i am a sample too'
+      frontText:'',
+      sideText: ''
     }
     this.submitFunction = this.submitFunction.bind(this);
   }
@@ -54,22 +59,54 @@ class ImageLoader extends Component {
       return (
         <div id="background">
           <div id="instruction">
-            <h1>Please pick a image to find calorie of food</h1>
+            <img src={calculator} alt="calculator" width="50px"></img>
+            <h1>Calorie Calculator</h1>
           </div>
+          
           <div id="image-selector">
-            <div id="image-picker-1">
-              <input type="file" name="avatar" onChange={this.fileChangedHandler} />
-                 { $frontPreview }
-                 <Text >{this.state.frontText} </Text>
+              <div id="image-picker-1">
+                <div id="front-selector">
+                  <p id="front-text">Front Image</p>
+                  <img src={imageSelectorImage} width="100px"></img>
+                  {/* <input type="file" name="avatar" onChange={this.fileChangedHandler} /> */}
+                    {/* { $frontPreview } */}
+                    {/* <h3 >{this.state.frontText} </h3> */}
+                </div>
+              </div>
+              <div id="image-picker-2">
+                <div id="side-selector">
+                  <p id="side-text">Side Image</p>
+                  <img src={imageSelectorImage} width="100px"></img>
+                  {/* <input type="file" name="avatar" onChange={this.fileSideImageHandler} /> */}
+                    {/* { $sidePreview } */}
+                    {/* <h3 >{this.state.sideText}</h3> */}
+                  </div>
+              </div>
+          </div>
+
+          <div id="upload-button-section">
+              <button id="upload-button" title="Upload" onClick={this.submitFunction} >Upload Button</button>
+          </div>
+          <div id="result">
+            <div>
+              <h2>Food Detected</h2>
+              <div style={{background:'white'}}>
+                Hello
+                {/* This is where the food detected should show */}
+                {this.state.frontText}
+              </div>
             </div>
-            <div id="image-picker-2">
-            <input type="file" name="avatar" onChange={this.fileSideImageHandler} />
-              { $sidePreview }
-              <Text >{this.state.sideText}</Text>
+            <div>
+              <h2>Is the food detected correct ?</h2>
+              <img src={tick} width="50px" alt="tick"></img>
+              <img src={cross} width="50px" alt="wrong"></img>         
             </div>
-            <div id="upload-button">
-              <button title="Upload" onPress={this.submitFunction} />
-            </div>  
+            <div>
+              <h2>Calories</h2>
+              <div style={{background:'white'}}>
+                <p>150</p>
+              </div>
+            </div>
           </div>
         </div>
     );
