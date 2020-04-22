@@ -67,7 +67,6 @@ class NavbarComponent extends Component {
             <Navbar bg="dark" variant="dark">
                 <Navbar.Brand href="/Dashboard">Know what you eat</Navbar.Brand>
             {this.renderButton(this.props.userLogginStatus)}
-            {/* {this.props.userLogginStatus?<Button onClick={this.logoutFunction}>Logout</Button>:<Button onClick={this.redirectRegister}>Register</Button>} */}
           </Navbar>
         );
     }
