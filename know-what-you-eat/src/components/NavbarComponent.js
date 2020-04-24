@@ -11,15 +11,16 @@ class NavbarComponent extends Component {
         this.redirectRegister = this.redirectRegister.bind(this);
         this.redirectLogin = this.redirectLogin.bind(this);
         this.renderButton = this.renderButton.bind(this);
+        this.redirectHistory = this.redirectHistory.bind(this);
     }
-
+    
     logoutFunction = () => {
         const token = localStorage.getItem("jwt");
         // console.log(token);
         const config = {
             headers: {
-                'Content-Type':'application/json;charset=UTF-8',
-                'Authorization':`bearer ${token}`
+                'content-type':'application/json;charset=UTF-8',
+                'Authorization': `bearer ${token}`
             },
             option:{
               'Access-Control-Allow-Origin':'*'
@@ -27,7 +28,7 @@ class NavbarComponent extends Component {
           };
           Axios.post("/logout",config)
               .then((response) => {
-                  // console.log('Response',response);
+                  console.log('Response',response);
                   if(response.status === 200){
                     console.log("The token is successfully uploaded");
                   }
@@ -45,6 +46,7 @@ class NavbarComponent extends Component {
       console.log("Redircting the register");
       this.props.history.push("/register");
     }
+    
     redirectLogin = () =>{
       console.log("Redirecting to login");
       this.props.history.push("/login");
@@ -58,15 +60,24 @@ class NavbarComponent extends Component {
           return <Button className="pull-right" id="actionButton" onClick={this.redirectLogin}>Login</Button>
           break;
         case "Logout":
-          return <Button className="pull-right" id="actionButton" onClick={this.logoutFunction}>Logout</Button>
+          return (
+            <div>
+            <Button className="pull-right" id="actionButton" onClick={this.logoutFunction}>Logout</Button>
+            <Button className="pull-right" id="actionButton" onClick={this.redirectHistory}>History</Button>
+            </div>
+          )
           break;
       }
+    }
+    redirectHistory = () =>{
+      console.log("Redircting the history");
+      this.props.history.push("/history");
     }
     render() {
         return (
             <Navbar bg="dark" variant="dark">
                 <Navbar.Brand href="/Dashboard">Know what you eat</Navbar.Brand>
-            {this.renderButton(this.props.userLogginStatus)}
+                {this.renderButton(this.props.userLogginStatus)}
           </Navbar>
         );
     }

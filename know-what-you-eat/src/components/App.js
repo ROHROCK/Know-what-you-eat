@@ -6,6 +6,7 @@ import AuthenticatedComponent from './AuthenicatedComponent';
 import Dashboard from './Dashboard';
 import Register from './Register';
 import Home from './home';
+import History from './History'
 
 class App extends Component {
   constructor(props){
@@ -35,7 +36,8 @@ class App extends Component {
         <Route path="/login" component={Login} />
         <Route exact path="/register" component={Register} /> 
           <AuthenticatedComponent>
-            <Route path="/Dashboard" component={Dashboard} />
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/history" component={History} />
           </AuthenticatedComponent>
         </Switch> 
       </BrowserRouter>

@@ -24,12 +24,11 @@ class AuthenticatedComponent extends Component{
     }
     componentDidMount(){
         const jwt = localStorage.getItem('jwt');
+        console.log('JWT TOKEN',jwt);
         if(!jwt){
             this.props.history.push('/login');
         }
-        // Asynch call
-        // setTimeout(()=>{
-            Axios.get('/home',{
+        Axios.get('/home',{
                 headers:{
                     'Authorization':`Bearer ${jwt}`
                 },
@@ -47,7 +46,6 @@ class AuthenticatedComponent extends Component{
                     localStorage.removeItem('jwt');
                     this.props.history.push('/login');
                 });
-        //} ,5000);
         
     }
 
