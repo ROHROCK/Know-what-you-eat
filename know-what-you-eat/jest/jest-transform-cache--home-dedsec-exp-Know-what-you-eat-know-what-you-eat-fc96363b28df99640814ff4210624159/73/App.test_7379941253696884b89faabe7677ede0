@@ -1,0 +1,3 @@
+/* istanbul ignore next */"use strict";test("test", () => {
+  expect(true).toBe(true);
+});

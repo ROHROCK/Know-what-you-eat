@@ -8,22 +8,20 @@
     "jquery": "^1.9.1",
     "pm2": "^4.2.3",
     "react": "^16.12.0",
+    "react-bootstrap": "^1.0.1",
     "react-dom": "^16.12.0",
+    "react-fade-in": "^1.0.0",
     "react-icons": "^3.8.0",
     "react-images-upload": "^1.2.8",
-    "react-native": "^0.61.5",
-    "react-native-web": "^0.12.0",
+    "react-lottie": "^1.2.3",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "0.9.5"
-  },
-  "devDependencies": {
-    "babel-jest": "^25.5.1",
-    "jest": "^25.5.2"
+    "react-scripts": "0.9.5",
+    "react-test-renderer": "^16.13.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest --watchAll",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
 }

@@ -1,0 +1,9 @@
+/* istanbul ignore next */"use strict";var _jsxFileName = "/home/dedsec/exp/Know-what-you-eat/know-what-you-eat/src/components/Home.test.js";var /* istanbul ignore next */_react = require("react"); /* istanbul ignore next */var _react2 = _interopRequireDefault(_react);
+var /* istanbul ignore next */_History = require("./History"); /* istanbul ignore next */var _History2 = _interopRequireDefault(_History);
+var /* istanbul ignore next */_reactTestRenderer = require("react-test-renderer"); /* istanbul ignore next */var _reactTestRenderer2 = _interopRequireDefault(_reactTestRenderer);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+it("renders without crashing", () => {
+  const component = /* istanbul ignore next */_reactTestRenderer2. /* istanbul ignore next */default.create( /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_History2. /* istanbul ignore next */default, /* istanbul ignore next */{ __source: { fileName: _jsxFileName, lineNumber: 6 }, __self: undefined }));
+  let tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});

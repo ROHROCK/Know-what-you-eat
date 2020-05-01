@@ -1,0 +1,114 @@
+/* istanbul ignore next */"use strict";Object.defineProperty(exports, "__esModule", { value: true });var _jsxFileName = "/home/dedsec/exp/Know-what-you-eat/know-what-you-eat/src/components/NavbarComponent.js";var /* istanbul ignore next */_react = require("react"); /* istanbul ignore next */var _react2 = _interopRequireDefault(_react);
+var /* istanbul ignore next */_Navbar = require("react-bootstrap/Navbar"); /* istanbul ignore next */var _Navbar2 = _interopRequireDefault(_Navbar);
+var /* istanbul ignore next */_Button = require("react-bootstrap/Button"); /* istanbul ignore next */var _Button2 = _interopRequireDefault(_Button);
+var /* istanbul ignore next */_reactRouter = require("react-router");
+var /* istanbul ignore next */_axios = require("axios"); /* istanbul ignore next */var _axios2 = _interopRequireDefault(_axios);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+class NavbarComponent extends /* istanbul ignore next */_react. /* istanbul ignore next */Component {
+  constructor(props) {
+    super(props); /* istanbul ignore next */this.
+
+
+
+
+
+
+
+    logoutFunction = () => {
+      const token = localStorage.getItem("jwt");
+      // console.log(token);
+      const config = {
+        headers: {
+          "content-type": "application/json;charset=UTF-8",
+          Authorization: `bearer ${token}` },
+
+        option: {
+          "Access-Control-Allow-Origin": "*" } };
+
+
+      /* istanbul ignore next */_axios2. /* istanbul ignore next */default.post("/logout", config).
+      then(response => {
+        console.log("Response", response);
+        if (response.status === 200) {
+          console.log("The token is successfully uploaded");
+        }
+      }).
+      catch(error => {
+        console.log("Error uploading jwt token for blacklisting");
+      });
+      localStorage.clear("token");
+      // this.props.userHandler();
+      this.props.history.push("/login");
+    }; /* istanbul ignore next */this.
+
+
+
+    redirectRegister = () => {
+      console.log("Redircting the register");
+      this.props.history.push("/register");
+    }; /* istanbul ignore next */this.
+
+    redirectLogin = () => {
+      console.log("Redirecting to login");
+      this.props.history.push("/login");
+    }; /* istanbul ignore next */this.
+    renderButton = userLogginStatus => {
+      switch (userLogginStatus) {
+        case "Register":
+          return (
+            /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_Button2. /* istanbul ignore next */default, /* istanbul ignore next */{
+                className: "pull-right",
+                id: "actionButton",
+                onClick: this.redirectRegister, __source: { fileName: _jsxFileName, lineNumber: 59 }, __self: this }, /* istanbul ignore next */"Register"));
+
+
+
+
+          break;
+        case "Login":
+          return (
+            /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_Button2. /* istanbul ignore next */default, /* istanbul ignore next */{
+                className: "pull-right",
+                id: "actionButton",
+                onClick: this.redirectLogin, __source: { fileName: _jsxFileName, lineNumber: 70 }, __self: this }, /* istanbul ignore next */"Login"));
+
+
+
+
+          break;
+        case "Logout":
+          return (
+            /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */"div", /* istanbul ignore next */{ __source: { fileName: _jsxFileName, lineNumber: 81 }, __self: this },
+              /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_Button2. /* istanbul ignore next */default, /* istanbul ignore next */{
+                  className: "pull-right",
+                  id: "actionButton",
+                  onClick: this.logoutFunction, __source: { fileName: _jsxFileName, lineNumber: 82 }, __self: this }, /* istanbul ignore next */"Logout"),
+
+
+
+              /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_Button2. /* istanbul ignore next */default, /* istanbul ignore next */{
+                  className: "pull-right",
+                  id: "actionButton",
+                  onClick: this.redirectHistory, __source: { fileName: _jsxFileName, lineNumber: 89 }, __self: this }, /* istanbul ignore next */"History")));
+
+
+
+
+
+          break;}
+
+    }; /* istanbul ignore next */this.
+    redirectHistory = () => {
+      console.log("Redircting the history");
+      this.props.history.push("/history");
+    };this.logoutFunction = this.logoutFunction.bind(this);this.redirectRegister = this.redirectRegister.bind(this);this.redirectLogin = this.redirectLogin.bind(this);this.renderButton = this.renderButton.bind(this);this.redirectHistory = this.redirectHistory.bind(this);} // componentWillReceiveProps(){
+  //   this.props.userHandler();
+  // }
+  render() {return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_Navbar2. /* istanbul ignore next */default, /* istanbul ignore next */{ bg: "dark", variant: "dark", __source: { fileName: _jsxFileName, lineNumber: 107 }, __self: this },
+        /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */ /* istanbul ignore next */_Navbar2. /* istanbul ignore next */default.Brand, /* istanbul ignore next */{ href: "/Dashboard", __source: { fileName: _jsxFileName, lineNumber: 108 }, __self: this }, /* istanbul ignore next */"Know what you eat"),
+        this.renderButton(this.props.userLogginStatus)));
+
+
+  }} /* istanbul ignore next */exports.default =
+
+/* istanbul ignore next */(0, /* istanbul ignore next */_reactRouter. /* istanbul ignore next */withRouter)(NavbarComponent);

@@ -12,7 +12,7 @@ class History extends Component {
     this.fetchHistory = this.fetchHistory.bind(this);
   }
   componentDidMount() {
-    console.log("Component is mounted !");
+    // console.log("Component is mounted !");
     this.fetchHistory();
   }
   fetchHistory = () => {
@@ -60,11 +60,6 @@ class History extends Component {
         );
       });
     }
-    // const items = this.state.data.map((item, key) =>
-    // <div key>
-    // 	<h1>{item.date}</h1>
-    // </div>
-    // );
     return (
       <div>
         <NavbarComponent userLogginStatus={"Logout"} />
