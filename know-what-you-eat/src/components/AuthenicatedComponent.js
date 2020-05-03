@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router";
 import Axios from "axios";
 import FadeIn from "react-fade-in";
-import Lottie from "react-lottie";
+// import Lottie from "react-lottie";
 import "bootstrap/dist/css/bootstrap.css";
 import * as legoData from "./lego-loader.json";
 
