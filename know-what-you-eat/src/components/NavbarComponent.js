@@ -64,7 +64,7 @@ class NavbarComponent extends Component {
             Register
           </Button>
         );
-        break;
+
       case "Login":
         return (
           <Button
@@ -75,7 +75,7 @@ class NavbarComponent extends Component {
             Login
           </Button>
         );
-        break;
+
       case "Logout":
         return (
           <div>
@@ -95,7 +95,8 @@ class NavbarComponent extends Component {
             </Button>
           </div>
         );
-        break;
+      default:
+        return;
     }
   };
   redirectHistory = () => {

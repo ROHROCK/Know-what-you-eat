@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Axios from "axios";
 import NavbarComponent from "./NavbarComponent";
 import "./css/history.css";
+
 class History extends Component {
   constructor(props) {
     super(props);
@@ -41,20 +42,22 @@ class History extends Component {
   render() {
     var printOut = "";
     if (this.state.data !== []) {
-      console.log(this.state.data);
+      // console.log(this.state.data);
       printOut = this.state.data.map(function (data, id) {
         return (
           <div>
             <li key={id}>
-              Date: {data.date}
-              <br></br>
-              Front Fruit: {data.frontFruitName}
-              <br></br>
-              Side Fruit: {data.sideFruitName}
-              <br></br>
-              Time Taken: {data.time}
-              <br></br>
-              Calorie: {data.calorie}
+              <div>
+                Date: {data.date}
+                <br></br>
+                Front Fruit: {data.frontFruitName}
+                <br></br>
+                Side Fruit: {data.sideFruitName}
+                <br></br>
+                Time Taken: {data.time}
+                <br></br>
+                Calorie: {data.calorie}
+              </div>
             </li>
           </div>
         );
@@ -65,14 +68,14 @@ class History extends Component {
         <NavbarComponent userLogginStatus={"Logout"} />
         <h1>HISTORY</h1>
         <div
-          id="showData"
+          id='showData'
           style={{
             display: "flex",
             alignItems: "center",
             flexDirection: "column",
           }}
         >
-          <div className="list-type1">
+          <div className='list-type1'>
             <ol>{printOut}</ol>
           </div>
         </div>

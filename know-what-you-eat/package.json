@@ -5,6 +5,8 @@
   "proxy": "http://127.0.0.1:5000",
   "dependencies": {
     "axios": "^0.19.2",
+    "bootstrap": "^4.4.1",
+    "enzyme-adapter-react-16": "^1.15.2",
     "jquery": "^1.9.1",
     "pm2": "^4.2.3",
     "react": "^16.12.0",
@@ -13,7 +15,8 @@
     "react-fade-in": "^1.0.0",
     "react-icons": "^3.8.0",
     "react-images-upload": "^1.2.8",
-    "react-lottie": "^1.2.3",
+    "react-loading": "^2.0.3",
+    "react-lottie": "^1.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "0.9.5",
     "react-test-renderer": "^16.13.1"
@@ -23,5 +26,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "axios-mock-adapter": "^1.18.1",
+    "enzyme": "^3.11.0"
   }
 }
