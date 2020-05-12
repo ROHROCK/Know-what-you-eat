@@ -29,8 +29,13 @@ class Login extends Component{
             password:this.state.password
         },this.headers).then((result) => {
             if(result.status === 200){
-                localStorage.setItem('jwt',result.data);
-                this.props.history.push("/Dashboard");
+                if(result.data.status === 301){
+                    alert(result.data.response);
+                }
+                else if(result.data.status === 200){
+                    localStorage.setItem('jwt',result.data.token);
+                    this.props.history.push("/Dashboard");
+                }
             }
         }).catch((error)=>{
             if (!error.status) {
