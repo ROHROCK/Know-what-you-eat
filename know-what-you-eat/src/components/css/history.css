@@ -1,43 +1,73 @@
-#main{
-	padding:1%;
-	max-width: 100%;
-	height: 90vh;
-	background-color: #D3D3D3;
-	display: flex;
-	flex-flow: column;
+#calorieText {
+  margin: 0em;
+  padding: 0em;
+  line-height: unset;
+  font-size: xxx-large;
+  font-family: Arial, Helvetica, sans-serif;
+  align-self: flex-end;
 }
-#picker{
-	padding:0.5%;
-	flex-shrink: 1;
-	background-color: transparent;
+#main {
+  padding: 1%;
+  max-width: 100%;
+  height: 90vh;
+  /* background-color: #d3d3d3; */
+  display: flex;
+  flex-flow: column;
 }
-#displayData{
-	display: flex;
-	margin: 0%;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	background-color: red;
+#picker {
+  padding: 0.5%;
+  flex-shrink: 1;
+  background-color: transparent;
 }
-#data{
-	display: flex;
-	margin: 1%;
-	padding:2%;
-	flex-grow: 10;
-	background-color: blueviolet;
+#displayData {
+  display: flex;
+  margin: 0%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
 }
-#calText{
-	color:gray;
+#data {
+  display: grid;
+  padding-right: 1%;
+  padding-left: 1%;
+  padding-top: 0.5%;
+  padding-top: 0.5%;
+  margin: 0.4%;
+  flex-grow: 10;
+  height: 100px;
+  background-color: whitesmoke;
+  border-radius: 1%;
+  box-shadow: 5px 5px 10px grey;
 }
-#totalCalorie{
-	display:flex;
-	align-items: flex-end;
-	justify-content: center;
-	margin:2%;
-	text-align: center;
-	flex-grow: 0.5;
+#calText {
+  color: gray;
+  font-size: large;
+  margin: 0em;
 }
-#displayChart{
-	flex-grow: 2;
-	background-color: blue;
+#totalCalorie {
+  display: grid;
+  border-radius: 5%;
+  box-shadow: 5px 5px 10px grey;
+  background-color: whitesmoke;
+  text-align: center;
+  padding-right: 1%;
+  padding-left: 1%;
+  padding-top: 0.5%;
+  padding-top: 0.5%;
+  margin: 0.4%;
+}
+#displayChart {
+  flex-grow: 2;
+  box-shadow: 5px 5px 10px grey;
+  background-color: whitesmoke;
+  border-radius: 1%;
+  width: 600px;
+  margin:1%;
+}
+#food-list {
+  width: auto;
+  height: auto;
+  overflow: auto;
+  text-align: justify;
 }

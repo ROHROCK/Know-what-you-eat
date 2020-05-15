@@ -3,6 +3,7 @@ import Axios from "axios";
 import NavbarComponent from "./NavbarComponent";
 import "./css/history.css";
 import fire from "./css/assests/fire.png";
+import {Bar,Pie, Line} from 'react-chartjs-2';
 
 class History extends Component {
   constructor(props) {
@@ -10,6 +11,28 @@ class History extends Component {
     this.state = {
       loading: false,
       data: [],
+      chartData:{
+        labels:['Monday','Tuesday','Wensday','Thursday','Friday'],
+        datasets:[{
+          label:'Calorie',
+          data:[
+            250,
+            100,
+            300,
+            1000,
+            230
+          ],
+          backgroundColor:[
+            'rgba(255,99,132,0.6)',
+            'rgba(54,162,235,0.6)',
+            'rgba(255,206,86,0.6)',
+            'rgba(75,192,192,0.6)',
+            'rgba(153,102,255,0.6)',
+            'rgba(255,159,64,0.6)',
+            'rgba(255,99,132,0.6)'
+          ]
+        }]
+      }
     };
     this.fetchHistory = this.fetchHistory.bind(this);
   }
@@ -43,17 +66,12 @@ class History extends Component {
   render() {
     var printOut = "";
     if (this.state.data !== []) {
-      // console.log(this.state.data);
       printOut = this.state.data.map(function (data, id) {
         return (
-          <div id="list">
+          <div id='list'>
             <li key={id}>
               <div>
-                Date: {data.date}
-                <br></br>
-                Front Fruit: {data.frontFruitName}
-                <br></br>
-                Side Fruit: {data.sideFruitName}
+                Food: {data.frontFruitName}
                 <br></br>
                 Time Taken: {data.time}
                 <br></br>
@@ -67,34 +85,48 @@ class History extends Component {
     return (
       <div>
         <NavbarComponent userLogginStatus={"Logout"} />
-        <div id="main">
-          <div id="picker">
+        <div id='main'>
+          <div id='picker'>
             <h3>Today</h3>
           </div>
-          <div id="displayData">
-            <div style={{display:"flex",flexDirection:"column",backgroundColor:"whitesmoke",alignItems:"center",padding:"0.7%"}}>
-              <div id="totalCalorie" alt="Fire icon">
-                <div style={{display:"flex",alignSelf:"center",paddingRight:"0.4em"}}>
-                  <img style={{height:"25px",opacity:"0.7"}} src={fire} alt="fire icon" />
+          <div id='displayData'>
+              <div id='totalCalorie' 
+                >
+                <div id="first-row" style={{
+                display: "flex",
+                alignItems:"center"
+              }}>
+                  <img
+                    style={{ height: "30px", opacity: "0.7"}}
+                    src={fire}
+                    alt='fire icon'
+                  />
+                  <p id="calorieText">205</p>
+                  <p id='calText'>cal</p>
                 </div>
-                <h1>205</h1>
-                <p id="calText">cal</p>
-              </div>
-              <div style={{color:"gray",alignItems:"start"}}>
-                CALORIE
-              </div>
-              </div>
-              <div id="data">
-                <div>
-                  Front Food: Apple
-                  <br></br>
-                  Calorie: 100
+                <div id="second-row" style={{ color: "gray", alignItems: "start" }}>
+                  CALORIE
                 </div>
+            </div>
+            <div id='data'>
+              <div style={{opacity:'0.6'}}>
+                Logged Meals
+              </div>
+              <div id="food-list" style={{backgroundColor:"#bfbfbf"}}>
+                {/* Front Food: Apple
+                <br></br>
+                Calorie: 100 */}
+                <ol>{printOut}</ol>
+              </div>
               {/* <ol>{printOut}</ol> */}
             </div>
           </div>
-          <div id="displayChart">
-          <h1>chart will be here</h1>
+          <div id='displayChart'>
+            <div>
+              <Bar
+              data={this.state.chartData}
+              options={{maintainAspectRatio: true}} />
+            </div>
           </div>
         </div>
         {/* <div
