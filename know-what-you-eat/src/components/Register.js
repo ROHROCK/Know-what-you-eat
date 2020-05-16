@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import NavbarComponent from "./NavbarComponent";
-import { withRouter } from "react-router";
 
 class Register extends Component {
   constructor(props) {

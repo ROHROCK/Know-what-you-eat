@@ -9,7 +9,7 @@ class Home extends Component {
       <div>
         <NavBar userLogginStatus={"Login"} />
         <div id="Main">
-          <img src={backgroundImage} id="background" alt="background-img" />
+          <img src={backgroundImage} id="background-home" alt="background-img" />
           <div id="MainText">
             We built an application to help you track calorie with ease.
           </div>
