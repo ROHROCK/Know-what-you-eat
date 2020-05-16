@@ -5,14 +5,17 @@ import AuthenticatedComponent from "./AuthenicatedComponent";
 import Dashboard from "./Dashboard";
 import Register from "./Register";
 import History from "./History";
+import Home from "./Home";
+
 
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
         <Switch>
-          <Route path='/login' component={Login} />
+          <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
+          <Route path='/' component={Home} />
           <AuthenticatedComponent>
             <Route exact path='/dashboard' component={Dashboard} />
             <Route exact path='/history' component={History} />

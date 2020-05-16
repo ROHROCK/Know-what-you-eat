@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-
+import NavBar from "./NavbarComponent"
 class Home extends Component {
   constructor(props) {
     super(props);
   }
   render() {
-    return <div>Hello world !</div>;
+    return (<div><NavBar userLogginStatus={"Register"}/>Hello world !</div>);
   }
 }
 export default Home;
