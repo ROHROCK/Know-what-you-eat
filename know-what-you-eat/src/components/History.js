@@ -4,6 +4,7 @@ import NavbarComponent from "./NavbarComponent";
 import "./css/history.css";
 import fire from "./css/assests/fire.png";
 import { Bar } from "react-chartjs-2";
+import noDataImg from './css/assests/noDataFound.png';
 
 class History extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class History extends Component {
     this.state = {
       loading: false,
       data: [],
+      dataIsEmpty: undefined,
       chartData: {
         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
         datasets: [
@@ -50,10 +52,24 @@ class History extends Component {
       },
     };
     this.fetchHistory = this.fetchHistory.bind(this);
+    this.parseTodayCalorie = this.parseTodayCalorie.bind(this);
+    this.displayEmptyDataScreen = this.displayEmptyDataScreen.bind(this);
+    // this.HistoryNotEmpty = this.HistoryNotEmpty.bind(this);
   }
+  parseTodayCalorie = () => {
+    if (this.state.data.length == 0) {
+      console.log("Empty data for today !");
+      this.displayEmptyDataScreen();
+    }
+  };
+  displayEmptyDataScreen = () => {
+    this.setState({
+      dataIsEmpty: false,
+    });
+  };
   componentDidMount() {
     // console.log("Component is mounted !");
-    this.fetchHistory();
+    // this.fetchHistory();
   }
   fetchHistory = () => {
     const jwt = localStorage.getItem("jwt");
@@ -78,13 +94,15 @@ class History extends Component {
         console.log("ERR", err);
       });
   };
+
   render() {
     var printOut = "";
-    if (this.state.data !== []) {
+    var layout = "";
+    if (this.state.data.length !== 0) {
       printOut = this.state.data.map(function (data, id) {
         return (
-          <div id='list'>
-            <li key={id}>
+          <div key={id} id='list'>
+            <li>
               <div>
                 Food: {data.frontFruitName}
                 <br></br>
@@ -96,10 +114,14 @@ class History extends Component {
           </div>
         );
       });
+    } else {
+      console.log("No history found at all");
+      layout = <img styles={{height:"100vh",width:"100vh"}} src={noDataImg} alt="No data found"/>
     }
     return (
       <div>
         <NavbarComponent userLogginStatus={"Logout"} />
+        {layout}
         <div id='main'>
           <div id='picker'>
             <h3>Today</h3>
@@ -139,10 +161,7 @@ class History extends Component {
               <div id='data'>
                 <div style={{ opacity: "0.6" }}>Logged Meals</div>
                 <div id='food-list' style={{ backgroundColor: "#bfbfbf" }}>
-                  {/* Front Food: Apple
-                <br></br>
-                Calorie: 100 */}
-                  <ol>{printOut}</ol>
+                  <ol>{ printOut }</ol>
                 </div>
               </div>
             </div>

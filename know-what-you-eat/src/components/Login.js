@@ -46,6 +46,7 @@ class Login extends Component{
     render(){                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
         return(<div>
             <NavbarComponent userLogginStatus={"Register"} />
+            <div id="login-background">
             <form id="custom-form" className="text-center Login.loginClass form-signin" onSubmit={e => this.submit(e)}>
             <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
                 <input className="form-control" placeholder="Email address"type="email" name="username" onChange={e => this.change(e)} value={this.state.username} required autoFocus/>
@@ -53,6 +54,7 @@ class Login extends Component{
                 value={this.state.password} required placeholder="password"/>
                 <button type="submit" className="btn btn-lg btn-primary btn-block" >Submit</button>
             </form>
+            </div>
         </div>
         );
         
