@@ -8,9 +8,9 @@ class Home extends Component {
   }
   render() {
     return (
-      <div>
+      <div class="LandingContainer">
+        <NavBar userLogginStatus={"Login"} />
         <div id="Main">
-          <NavBar userLogginStatus={"Login"} />
           <img id="background" alt="">
           </img>
           <div id="MainText">
