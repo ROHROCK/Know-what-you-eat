@@ -1,64 +1,79 @@
-#Main {
-  background-color: white;
+.HomeContainer {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 120% 58%;
 }
 
-#background-home {
-  position: absolute;
-  width: 100%;
-  height: 70%;
+.HomeContainer > div {
+  background-color: #0c4d03;
+}
+
+.MainPart {
+  background-image: url(assests/landingBackground.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
-  filter: blur(2px);
-  opacity: 0.7s;
+  background-size: 100% 100%;
+  opacity: 0.7;
 }
 
-#BottomBar {
-  bottom: 0px;
-  position: absolute;
-  width: 100%;
-  height: 25%;
-  background: #182c15;
-}
-
-#MainText {
-  position: absolute;
-  width: 70%;
-  height: 50%;
-  left: 15%;
-  top: 10%;
+.MainText {
+  height: auto;
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 5%;
   font-family: Playfair Display SC;
   font-style: normal;
   font-weight: bold;
-  font-size: 48px;
-  line-height: 100%;
-  display: flex;
-  align-items: center;
+  font-size: 40px;
   text-align: center;
   letter-spacing: 10px;
   color: #000000;
   border: 2px solid #000000;
 }
 
-#historyButton {
-  position: absolute;
-  width: 72px;
-  height: 100px;
-  left: 50px;
-  top: 20px;
+.historyButton {
+  margin-top: 5%;
+  width: 25%;
+  height: 40%;
 }
 
-#trackContent {
-  position: absolute;
-  width: 100%;
-  height: 20%;
-  top: 120px;
-  font-family: Play;
+.calculateCalButton {
+  margin-top: 5%;
+  width: 30%;
+  height: 40%;
+}
+
+.AboutHomeButton {
+  margin-top: 5%;
+  width: 40%;
+  height: 40%;
+}
+
+.BottomPart {
+  font-family: Playfair Display SC;
   font-style: normal;
   font-weight: bold;
-  font-size: 20px;
-  line-height: 100%;
-  display: flex;
-  align-items: center;
-  text-align: center;
+  font-size: 30px;
   color: #ffffff;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  justify-items: center;
+  grid-gap: 0;
+}
+
+.HistoryHome {
+  display: grid;
+  grid-template-rows: 50% 30%;
+  justify-items: center;
+}
+
+.CaloriCalHome {
+  display: grid;
+  grid-template-rows: 50% 30%;
+  justify-items: center;
+}
+
+.AboutHome {
+  display: grid;
+  grid-template-rows: 50% 30%;
+  justify-items: center;
 }
