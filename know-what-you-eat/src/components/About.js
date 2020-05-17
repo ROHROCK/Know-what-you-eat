@@ -13,11 +13,11 @@ class About extends Component {
       <div class="AboutMain">
         <NavBar userLogginStatus={"Login"} />
         <h1>About Us and The Project</h1>
-        <p>
+        <p class="AU">
           We are enthusiastic FINAL YEAR programmers from Computer
           Department,DYPCOE.
         </p>
-        <p>
+        <p class="AU">
           Talking about the project -- <br></br>
           The idea proposed was to make a web/android application which will be
           able to calculate the calorie value of food when provided images of
