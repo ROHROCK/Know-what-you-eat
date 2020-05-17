@@ -5,7 +5,7 @@
 #background-home {
   position: absolute;
   width: 100%;
-  height: 55%;
+  height: 70%;
   background-repeat: no-repeat;
   background-size: cover;
   filter: blur(2px);
@@ -45,7 +45,6 @@
   height: 100px;
   left: 50px;
   top: 20px;
-  background: url("assests/list.png");
 }
 
 #trackContent {
