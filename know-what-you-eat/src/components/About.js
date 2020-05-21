@@ -14,10 +14,6 @@ class About extends Component {
         <NavBar userLogginStatus={"Login"} />
         <h1>About Us and The Project</h1>
         <p class="AU">
-          We are enthusiastic FINAL YEAR programmers from Computer
-          Department,DYPCOE.
-        </p>
-        <p class="AU">
           Talking about the project -- <br></br>
           The idea proposed was to make a web/android application which will be
           able to calculate the calorie value of food when provided images of
@@ -39,14 +35,14 @@ class About extends Component {
             <img src={TensorImage} alt="" />
           </div>
         </div>
-        <div>
-            <h3>Group Members</h3>
-            <ul>
-                <li>Aditya Kulkarni</li>
-                <li>Rohit Agharkar</li>
-                <li>Yogesh Dollin</li>
-                <li>Shubham Thorat</li>
-            </ul>
+        <div class="groupMember">
+          <h3>Group Members</h3>
+          <ul>
+            <li>Aditya Kulkarni</li>
+            <li>Rohit Agharkar</li>
+            <li>Yogesh Dollin</li>
+            <li>Shubham Thorat</li>
+          </ul>
         </div>
       </div>
     );
