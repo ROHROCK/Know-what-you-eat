@@ -1,5 +1,8 @@
 .AboutMain {
-  background-color: #ece5a5;
+  background-image: url(./assests/landingBackground.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-style: oblique;
 }
 
 h1 {
@@ -11,8 +14,8 @@ h2 {
   margin-top: 5%;
 }
 
-.AUp {
-  background-color: #dfd553;
+.AU {
+  background-color: #e0ffff;
   margin-top: 3%;
   margin-left: 15%;
   font-size: 20px;
@@ -23,7 +26,7 @@ h2 {
 }
 
 .Technology {
-  background-color: #dfd553;
+  margin-bottom: 5%;
   margin-top: 5%;
   width: 100%;
   display: grid;
@@ -43,4 +46,11 @@ h2 {
   display: grid;
   grid-template-columns: 33% 33%;
   justify-items: center;
+}
+
+.groupMember {
+  margin-left: 40%;
+  background-color: #e0ffff;
+  margin-right: 40%;
+  text-align: center;
 }
