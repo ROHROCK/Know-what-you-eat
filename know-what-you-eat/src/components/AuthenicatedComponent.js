@@ -16,7 +16,7 @@ class AuthenticatedComponent extends Component {
   }
   componentDidMount() {
     const jwt = localStorage.getItem("jwt");
-    console.log("JWT TOKEN", jwt);
+    // console.log("JWT TOKEN", jwt);
     if (!jwt) {
       this.props.history.push("/login");
     }
@@ -32,10 +32,10 @@ class AuthenticatedComponent extends Component {
         this.setState({
           user: res.data,
         });
-        console.log("User name", this.state.user);
+        // console.log("User name", this.state.user);
       })
       .catch((err) => {
-        console.log("ERR", err);
+        // console.log("ERR", err);
         localStorage.removeItem("jwt");
         this.props.history.push("/login");
       });
