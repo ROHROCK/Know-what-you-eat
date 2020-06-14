@@ -47,7 +47,7 @@ class History extends Component {
       chartData: format,
       options: {
         scales: {
-          xAxes: [
+          yAxes: [
             {
               ticks: {
                 beginAtZero: true,
@@ -67,7 +67,7 @@ class History extends Component {
   onRangeChange = (date) => {
     this.setState({ range: date });
     console.log("Range of date :", date);
-    this.fetchRangeHistory();
+    this.fetchRangeHistory(date[0], date[1]);
   };
 
   onDateChange = (date) => {
@@ -91,16 +91,17 @@ class History extends Component {
 
   componentDidMount() {
     this.fetchHistory(this.state.date);
+    this.fetchRangeHistory(this.state.range[0], this.state.range[1]);
   }
 
-  fetchRangeHistory = () => {
-    var yearS = this.state.range[0].getFullYear();
-    var monthS = this.state.range[0].getMonth() + 1;
-    var dayS = this.state.range[0].getDate();
+  fetchRangeHistory = (startDate, endDate) => {
+    var yearS = startDate.getFullYear();
+    var monthS = startDate.getMonth() + 1;
+    var dayS = startDate.getDate();
 
-    var yearE = this.state.range[1].getFullYear();
-    var monthE = this.state.range[1].getMonth() + 1;
-    var dayE = this.state.range[1].getDate();
+    var yearE = endDate.getFullYear();
+    var monthE = endDate.getMonth() + 1;
+    var dayE = endDate.getDate();
 
     console.log("Start range", yearS, monthS, dayS);
     console.log("End range", yearE, monthE, dayE);
@@ -136,9 +137,6 @@ class History extends Component {
       });
   };
   fetchHistory = (d) => {
-    // var date = d.toISOString().substring(0, 10).split("-");
-    // console.log(date);
-
     var year = d.getFullYear();
     var month = d.getMonth() + 1;
     var day = d.getDate();
@@ -173,12 +171,10 @@ class History extends Component {
   render() {
     var printOut = "";
     var layout = "";
-    // console.log("Render", this.state.data);
     if (this.state.data.length !== 0) {
       this.state.totalCalorie = this.state.data.reduce((sum, data) => {
         return sum + Number(data.history.calorie);
       }, 0);
-      // console.log(this.state.totalCalorie);
       printOut = this.state.data.map(function (data, id) {
         return (
           <div key={id} id='list'>
@@ -240,7 +236,7 @@ class History extends Component {
               </div>
             </div>
             <div id='displayChart'>
-              <div>
+              <div style={{ display: "flex", justifyContent: "center" }}>
                 <DateRangePicker
                   onChange={this.onRangeChange}
                   value={this.state.range}

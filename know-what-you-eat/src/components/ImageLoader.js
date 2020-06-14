@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import Axios from "axios";
 import "./css/ImageLoader.css";
 import calculator from "./css/assests/calculator.png";
-import tick from "./css/assests/tick.png";
-import cross from "./css/assests/wrong.png";
+// import tick from "./css/assests/tick.png";
+// import cross from "./css/assests/wrong.png";
 import ImageUploader from "react-images-upload";
 import FadeIn from "react-fade-in";
 import Lottie from "react-lottie";
@@ -114,11 +114,11 @@ class ImageLoader extends Component {
                   {this.state.frontText}
                 </div>
               </div>
-              <div>
+              {/* <div>
                 <h2>Is the food detected correct ?</h2>
                 <img src={tick} width='50px' alt='tick'></img>
                 <img src={cross} width='50px' alt='wrong'></img>
-              </div>
+              </div> */}
               <div>
                 <h2>Calories</h2>
                 <div style={{ background: "white" }}>
