@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
-import Login from "./Login";
+import Login from "../Login";
 import { configure } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 

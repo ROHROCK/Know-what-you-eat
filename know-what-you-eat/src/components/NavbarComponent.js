@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
-import { withRouter } from "react-router";
+import { withRouter } from "react-router-dom";
 import Axios from "axios";
 
 class NavbarComponent extends Component {
