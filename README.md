@@ -1,6 +1,6 @@
 # Know What You Eat
 
-Front end react application to interact with the user to accept food images from user , display response from the server. This application is a pure React application which is ready to deploy on your machine.
+Front end react application to interact with the user to accept food images from user , display response from the server using REST API provided by the server. This application is a pure React application which is ready to deploy on your machine.
 
 ## Getting Started
 
@@ -11,7 +11,7 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them
 
 ```
-npm
+npm install
 ```
 
 ### Installing
