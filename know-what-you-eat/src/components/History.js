@@ -77,7 +77,7 @@ class History extends Component {
   };
 
   parseTodayCalorie = () => {
-    if (this.state.data.length == 0) {
+    if (this.state.data.length === 0) {
       console.log("Empty data for today !");
       this.displayEmptyDataScreen();
     }
@@ -177,7 +177,7 @@ class History extends Component {
       }, 0);
       printOut = this.state.data.map(function (data, id) {
         return (
-          <div key={id} id='list'>
+          <div key={id} id="list">
             <li>
               <div>
                 Food: {data.history.foodDetected}
@@ -191,12 +191,12 @@ class History extends Component {
         );
       });
       layout = (
-        <div id='main'>
-          <div id='picker'>
+        <div id="main">
+          <div id="picker">
             <h3>Today</h3>
             <DatePicker onChange={this.onDateChange} value={this.state.date} />
           </div>
-          <div id='displayData'>
+          <div id="displayData">
             <div
               style={{
                 display: "flex",
@@ -205,9 +205,9 @@ class History extends Component {
                 height: "100%",
               }}
             >
-              <div id='totalCalorie'>
+              <div id="totalCalorie">
                 <div
-                  id='first-row'
+                  id="first-row"
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -216,26 +216,26 @@ class History extends Component {
                   <img
                     style={{ height: "30px", opacity: "0.7" }}
                     src={fire}
-                    alt='fire icon'
+                    alt="fire icon"
                   />
-                  <p id='calorieText'>{this.state.totalCalorie}</p>
-                  <p id='calText'>cal</p>
+                  <p id="calorieText">{this.state.totalCalorie}</p>
+                  <p id="calText">cal</p>
                 </div>
                 <div
-                  id='second-row'
+                  id="second-row"
                   style={{ color: "gray", alignItems: "start" }}
                 >
                   CALORIE
                 </div>
               </div>
-              <div id='data'>
+              <div id="data">
                 <div style={{ opacity: "0.6" }}>Logged Meals</div>
-                <div id='food-list' style={{ backgroundColor: "#bfbfbf" }}>
+                <div id="food-list" style={{ backgroundColor: "#bfbfbf" }}>
                   <ol>{printOut}</ol>
                 </div>
               </div>
             </div>
-            <div id='displayChart'>
+            <div id="displayChart">
               <div style={{ display: "flex", justifyContent: "center" }}>
                 <DateRangePicker
                   onChange={this.onRangeChange}
@@ -256,15 +256,15 @@ class History extends Component {
     } else {
       console.log("No history found at all");
       layout = (
-        <div id='main'>
-          <div id='picker'>
+        <div id="main">
+          <div id="picker">
             <h3>Today</h3>
             <DatePicker onChange={this.onDateChange} value={this.state.date} />
           </div>
           <img
-            id='no-data-image'
+            id="no-data-image"
             src={noDataImg}
-            alt='No data found'
+            alt="No data found"
             style={{ width: "100%", height: "75vh" }}
           />
         </div>
