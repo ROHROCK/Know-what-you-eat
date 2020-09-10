@@ -24,7 +24,7 @@ class ImageLoader extends Component {
     this.state = {
       frontPicture: [],
       sidePicture: [],
-      frontText: "",
+      foodDetected: "",
       sideText: "",
       calorie: 0,
       loading: false,
@@ -63,18 +63,18 @@ class ImageLoader extends Component {
             </div>
           </FadeIn>
         ) : (
-          <div id='background'>
-            <div id='instruction'>
-              <img src={calculator} alt='calculator' width='50px'></img>
+          <div id="background">
+            <div id="instruction">
+              <img src={calculator} alt="calculator" width="50px"></img>
               <h1>Calorie Calculator</h1>
             </div>
 
-            <div id='image-selector'>
-              <div id='image-picker-1'>
-                <div id='front-selector'>
+            <div id="image-selector">
+              <div id="image-picker-1">
+                <div id="front-selector">
                   <ImageUploader
                     withIcon={true}
-                    buttonText='Front image'
+                    buttonText="Top view image"
                     onChange={this.onFrontDrop}
                     imgExtension={[".jpg", ".gif", ".png", ".gif", ".jpeg"]}
                     maxFileSize={5242880}
@@ -83,11 +83,11 @@ class ImageLoader extends Component {
                   />
                 </div>
               </div>
-              <div id='image-picker-2'>
-                <div id='side-selector'>
+              <div id="image-picker-2">
+                <div id="side-selector">
                   <ImageUploader
                     withIcon={true}
-                    buttonText='Side image'
+                    buttonText="Side view image"
                     onChange={this.onSideDrop}
                     imgExtension={[".jpg", ".gif", ".png", ".gif", ".jpeg"]}
                     maxFileSize={5242880}
@@ -98,20 +98,20 @@ class ImageLoader extends Component {
               </div>
             </div>
 
-            <div id='upload-button-section'>
+            <div id="upload-button-section">
               <button
-                id='upload-button'
-                title='Upload'
+                id="upload-button"
+                title="Upload"
                 onClick={this.submitFunction}
               >
                 Upload Button
               </button>
             </div>
-            <div id='result'>
+            <div id="result">
               <div>
                 <h2>Food Detected</h2>
                 <div style={{ background: "white" }}>
-                  {this.state.frontText}
+                  {this.state.foodDetected}
                 </div>
               </div>
               {/* <div>
@@ -168,8 +168,7 @@ class ImageLoader extends Component {
         }
         this.setState({
           calorie: response.data.calorie,
-          frontText: response.data.frontText,
-          sideText: response.data.sideText,
+          foodDetected: response.data.foodDetected,
         });
       })
       .catch((error) => {

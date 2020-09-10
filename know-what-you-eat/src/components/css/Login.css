@@ -1,23 +1,23 @@
-body{
-    background-size: 100%;
-    padding:0;
-    margin:0;
+body {
+  background-size: 100%;
+  padding: 0;
+  margin: 0;
 }
-#login-background{
+#login-background {
   background-image: url("giphy.gif");
-  height: 90vh;
+  height: 94vh;
 }
-#custom-form{
+#custom-form {
   background-color: aliceblue;
   text-align: center;
 }
 .bd-placeholder-img {
-    font-size: 1.125rem;
-    text-anchor: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .loginClass {
   display: -ms-flexbox;
