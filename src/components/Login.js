@@ -26,7 +26,7 @@ class Login extends Component {
     e.preventDefault();
     axios
       .post(
-        "/login",
+        "http://test.beserver.cloudns.cl/login",
         {
           username: this.state.username,
           password: this.state.password,

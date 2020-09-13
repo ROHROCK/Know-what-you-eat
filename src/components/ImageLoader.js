@@ -157,7 +157,7 @@ class ImageLoader extends Component {
     this.setState({
       loading: true,
     });
-    Axios.post("/uploadImage", fd, config)
+    Axios.post("http://test.beserver.cloudns.cl/uploadImage", fd, config)
       .then((response) => {
         console.log("Response", response);
         this.setState({

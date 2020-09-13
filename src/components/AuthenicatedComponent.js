@@ -6,7 +6,6 @@ import Lottie from "react-lottie";
 import "bootstrap/dist/css/bootstrap.css";
 import * as legoData from "./lego-loader.json";
 
-
 class AuthenticatedComponent extends Component {
   constructor(props) {
     super(props);
@@ -20,7 +19,7 @@ class AuthenticatedComponent extends Component {
     if (!jwt) {
       this.props.history.push("/login");
     }
-    Axios.get("/home", {
+    Axios.get("http://test.beserver.cloudns.cl/home", {
       headers: {
         Authorization: `Bearer ${jwt}`,
       },
@@ -40,7 +39,7 @@ class AuthenticatedComponent extends Component {
         this.props.history.push("/login");
       });
   }
-  
+
   render() {
     let defaultOptions = {
       loop: true,
@@ -48,13 +47,13 @@ class AuthenticatedComponent extends Component {
       animationData: legoData.default,
       rendererSettings: {
         preserveAspectRatio: "xMidYMid slice",
-      }
+      },
     };
     return (
       <div>
         {!this.state.user ? (
           <FadeIn>
-            <div className='d-flex justify-content-center align-items-center'>
+            <div className="d-flex justify-content-center align-items-center">
               <h1>Loading..</h1>
               <Lottie options={defaultOptions} height={120} width={120} />
             </div>

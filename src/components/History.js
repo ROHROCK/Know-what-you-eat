@@ -112,7 +112,7 @@ class History extends Component {
     if (!jwt) {
       this.props.history.push("/login");
     }
-    Axios.post("/getRangeHistory", {
+    Axios.post("http://test.beserver.cloudns.cl/getRangeHistory", {
       headers: {
         Authorization: `Bearer ${jwt}`,
       },
@@ -147,7 +147,7 @@ class History extends Component {
     if (!jwt) {
       this.props.history.push("/login");
     }
-    Axios.post("/getHistoryDate", {
+    Axios.post("http://test.beserver.cloudns.cl/getHistoryDate", {
       headers: {
         Authorization: `Bearer ${jwt}`,
       },

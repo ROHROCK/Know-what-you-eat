@@ -20,20 +20,20 @@ class NavbarComponent extends Component {
     const config = {
       headers: {
         "content-type": "application/json;charset=UTF-8",
-        Authorization: `bearer ${token}`
+        Authorization: `bearer ${token}`,
       },
       option: {
-        "Access-Control-Allow-Origin": "*"
-      }
+        "Access-Control-Allow-Origin": "*",
+      },
     };
-    Axios.post("/logout", config)
-      .then(response => {
+    Axios.post("http://test.beserver.cloudns.cl/logout", config)
+      .then((response) => {
         console.log("Response", response);
         if (response.status === 200) {
           console.log("The token is successfully uploaded");
         }
       })
-      .catch(error => {
+      .catch((error) => {
         console.log("Error uploading jwt token for blacklisting");
       });
     localStorage.clear("token");
@@ -63,7 +63,7 @@ class NavbarComponent extends Component {
       </Button>
     );
   };
-  renderButton = userLogginStatus => {
+  renderButton = (userLogginStatus) => {
     switch (userLogginStatus) {
       case "Register":
         return (

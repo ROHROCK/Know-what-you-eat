@@ -18,12 +18,15 @@ class Register extends Component {
       [e.target.name]: e.target.value,
     });
   }
-  checkCredentials = () =>{
-    if(this.state.username !== "" && this.state.password === this.state.passwordReEntered){
-      return true
+  checkCredentials = () => {
+    if (
+      this.state.username !== "" &&
+      this.state.password === this.state.passwordReEntered
+    ) {
+      return true;
     }
-    return false
-  }
+    return false;
+  };
   submitForm = (e) => {
     e.preventDefault();
     if (this.checkCredentials) {
@@ -33,7 +36,7 @@ class Register extends Component {
     console.log("Submit form invoked !");
     axios
       .post(
-        "/register",
+        "http://test.beserver.cloudns.cl/register",
         {
           username: this.state.username,
           password: this.state.password,
@@ -54,41 +57,41 @@ class Register extends Component {
       <div>
         <NavbarComponent userLogginStatus={"Login"} />
         <form
-          id='custom-form'
-          className='text-center Login.loginClass form-signin'
+          id="custom-form"
+          className="text-center Login.loginClass form-signin"
           onSubmit={(e) => this.submitForm(e)}
         >
-          <h1 className='h3 mb-3 font-weight-normal'>Please Register</h1>
+          <h1 className="h3 mb-3 font-weight-normal">Please Register</h1>
           <input
-            className='form-control'
-            placeholder='Email address'
-            type='email'
-            name='username'
+            className="form-control"
+            placeholder="Email address"
+            type="email"
+            name="username"
             onChange={(e) => this.change(e)}
             value={this.state.username}
             required
             autoFocus
           />
           <input
-            id='input-password'
-            className='form-control'
-            type='password'
-            name='password'
+            id="input-password"
+            className="form-control"
+            type="password"
+            name="password"
             onChange={(e) => this.change(e)}
             value={this.state.password}
             required
-            placeholder='Enter password'
+            placeholder="Enter password"
           />
           <input
-            className='form-control'
-            type='password'
-            name='passwordReEntered'
+            className="form-control"
+            type="password"
+            name="passwordReEntered"
             onChange={(e) => this.change(e)}
             value={this.state.passwordReEntered}
             required
-            placeholder='Re-enter password'
+            placeholder="Re-enter password"
           />
-          <button type='submit' className='btn btn-lg btn-primary btn-block'>
+          <button type="submit" className="btn btn-lg btn-primary btn-block">
             Submit
           </button>
         </form>

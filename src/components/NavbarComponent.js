@@ -26,7 +26,7 @@ class NavbarComponent extends Component {
         "Access-Control-Allow-Origin": "*",
       },
     };
-    Axios.post("/logout", config)
+    Axios.post("http://test.beserver.cloudns.cl/logout", config)
       .then((response) => {
         console.log("Response", response);
         if (response.status === 200) {
@@ -57,8 +57,8 @@ class NavbarComponent extends Component {
       case "Register":
         return (
           <Button
-            className='pull-right'
-            id='actionButton'
+            className="pull-right"
+            id="actionButton"
             onClick={this.redirectRegister}
           >
             Register
@@ -68,8 +68,8 @@ class NavbarComponent extends Component {
       case "Login":
         return (
           <Button
-            className='pull-right'
-            id='actionButton'
+            className="pull-right"
+            id="actionButton"
             onClick={this.redirectLogin}
           >
             Login
@@ -80,15 +80,15 @@ class NavbarComponent extends Component {
         return (
           <div>
             <Button
-              className='pull-right'
-              id='actionButton'
+              className="pull-right"
+              id="actionButton"
               onClick={this.logoutFunction}
             >
               Logout
             </Button>
             <Button
-              className='pull-right'
-              id='actionButton'
+              className="pull-right"
+              id="actionButton"
               onClick={this.redirectHistory}
             >
               History
@@ -105,8 +105,8 @@ class NavbarComponent extends Component {
   };
   render() {
     return (
-      <Navbar bg='dark' variant='dark'>
-        <Navbar.Brand href='/Dashboard'>Know what you eat</Navbar.Brand>
+      <Navbar bg="dark" variant="dark">
+        <Navbar.Brand href="/Dashboard">Know what you eat</Navbar.Brand>
         {this.renderButton(this.props.userLogginStatus)}
       </Navbar>
     );
