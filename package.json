@@ -2,7 +2,7 @@
   "name": "know-what-you-eat",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://beserver.dns.army/",
+  "proxy": "http://beserveripv6.dns.army",
   "dependencies": {
     "@wojtekmaj/react-daterange-picker": "^3.0.0",
     "axios": "^0.19.2",
