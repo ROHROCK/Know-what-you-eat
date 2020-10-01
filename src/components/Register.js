@@ -29,7 +29,7 @@ class Register extends Component {
   };
   submitForm = (e) => {
     e.preventDefault();
-    if (this.checkCredentials) {
+    if (!this.checkCredentials) {
       alert("Please ensure both password are same");
       return;
     }
