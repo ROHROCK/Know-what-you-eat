@@ -18,7 +18,7 @@
     "react-images-upload": "^1.2.8",
     "react-loading": "^2.0.3",
     "react-lottie": "^1.2.0",
-    "react-scripts": "0.9.5"
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -29,7 +29,7 @@
   "devDependencies": {
     "axios-mock-adapter": "^1.18.1",
     "canvas": "^2.6.1",
-    "css-loader": "^3.6.0",
+    "css-loader": "^6.7.3",
     "enzyme": "^3.11.0",
     "jest-canvas-mock": "^2.2.0",
     "react-router": "^5.2.0",
