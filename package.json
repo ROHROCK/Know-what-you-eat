@@ -18,7 +18,7 @@
     "react-images-upload": "^1.2.8",
     "react-loading": "^2.0.3",
     "react-lottie": "^1.2.0",
-    "react-scripts": "0.9.5"
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
